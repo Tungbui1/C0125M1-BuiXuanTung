@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: rgb(212, 255, 127);">
+   <form action="http://demo.codegym.vn/6/registration_form/register.php" method="post">
+    <legend style="color: blue;background-color: rgb(112, 112, 227);">Đăng kí học viên</legend>
+    <label for="name">Họ và tên:</label>
+    <input type="name" name="name" id="name"><br>
+    <label for="date">Ngày Sinh:</label>
+    <input type="date" name="date" id="date">
+    <label>Giới tính:</label><br>
+    <input type="radio" id="male" name="gender" value="male">
+    <label for="male">Nam</label>
+
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Nữ</label><br>
+    <label for="diachi">Địa chỉ</label><br>
+  <textarea name="diachi" id="diachi" cols="10" rows="5"></textarea><br>
+  <label for="lop">Lớp</label>
+  <select name="lop" id="lop">
+    <option value="cc4">Chọn lớp</option>
+    <option value="cc1">lớp1</option>
+    <option value="cc2">lớp2</option>
+    <option value="cc3">lớp3</option>
+  </select><br>
+  <label for="email">Email</label>
+  <input type="email" name="email" id="email"><br>
+  <label for="đt">Điện thoại</label>
+  <input type="number" name="đt" id="đt">
+  <button type="submit">Đăng ký</button>
+  <button type="reset">Nhập lại</button>
+  </form> 
+</body>
+</html>
