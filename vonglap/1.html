@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-   <!--
+   
    <script>
         for (let n = 0; n <= 5; n++) {
             alert("This number is "+n)
@@ -59,7 +60,7 @@ while (i < 100) {
         alert("Bạn đã nhập số hợp lệ: " + number);
     </script>
     -->
-    <script>
+    <!--<script>
         let isPrime = true;
 let k = +prompt("Mời bạn nhập số k: ")
 for(let i = 2; i <= Math.sqrt(k); i++) {
@@ -76,3 +77,34 @@ if(isPrime){
     </script>
 </body>
 </html>
+-->
+<!--
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci</title>
+</head>
+<body>
+    <h2>20 số Fibonacci đầu tiên:</h2>
+    <p id="output"></p>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let soLuong = 20;
+            let fibo = [0, 1];
+            let i = 2;
+
+            while (i < soLuong) {
+                fibo[i] = fibo[i - 1] + fibo[i - 2];
+                i++;
+            }
+
+            document.getElementById("output").innerText = fibo.join(", ");
+            console.log("20 số Fibonacci đầu tiên:", fibo);
+        });
+    </script>
+</body>
+</html>
+-->

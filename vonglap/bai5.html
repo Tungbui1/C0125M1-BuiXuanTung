@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+    <script>
+        let fibo = [0, 1], sum = 1;
+for (let i = 2; i < 20; i++) {
+    fibo[i] = fibo[i - 1] + fibo[i - 2];
+    sum += fibo[i];
+}
+console.log("Tổng của 20 số Fibonacci đầu tiên:", sum);
+    </script>
+-->
+    <!--
+    <script>
+        let sum = 0, count = 0, num = 0;
+while (count < 30) {
+    if (num % 7 === 0) {
+        sum += num;
+        count++;
+    }
+    num++;
+}
+console.log("Tổng của 30 số chia hết cho 7 đầu tiên:", sum);
+    </script>
+-->
+    <script>
+        for (let i = 1; i <= 100; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+        console.log("FizzBuzz");
+    } else if (i % 3 === 0) {
+        console.log("Fizz");
+    } else if (i % 5 === 0) {
+        console.log("Buzz");
+    } else {
+        console.log(i);
+    }
+}
+    </script>
+</body>
+</html>
