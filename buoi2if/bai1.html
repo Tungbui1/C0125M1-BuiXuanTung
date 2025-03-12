@@ -6,22 +6,147 @@
     <title>Document</title>
 </head>
 <body>
-    <form>
-        <img id="myImage" src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Football_%28soccer_ball%29.svg" style = "width: 30%"/>
-        <p>Click button below to move the image to right</p>
-    <input type="button" value="Click Me" onclick="moveRight();" /></form>
+    <!--
     <script>
-        let imgObj = null;
-imgObj = document.getElementById('myImage');
-function init() {
-    imgObj = document.getElementById('myImage');
-    imgObj.style.position = 'relative';
-    imgObj.style.left = '0px';
+        let doC = parseFloat(prompt("Nhập nhiệt độ (°C):"));
+let doF = doC * 9/5 + 32;
+console.log(`${doC}°C = ${doF.toFixed(2)}°F`);
+    </script>
+    -->
+    <!--
+    <script>
+        let met = parseFloat(prompt("Nhập số mét:"));
+let feet = met * 3.2808;
+console.log(`${met} mét = ${feet.toFixed(2)} feet`);
+    </script>
+    -->
+    <!--
+    <script>
+        let canhA = parseFloat(prompt("Nhập cạnh hình vuông:"));
+let dienTichVuong = canhA * canhA;
+console.log(`Diện tích hình vuông: ${dienTichVuong}`);
+    </script>
+    <!--
+    <script>
+        let chieuDai = parseFloat(prompt("Nhập chiều dài:"));
+let chieuRong = parseFloat(prompt("Nhập chiều rộng:"));
+let dienTichCN = chieuDai * chieuRong;
+console.log(`Diện tích hình chữ nhật: ${dienTichCN}`);
+    </script>
+    <!--
+    <script>
+        let canhA_TG = parseFloat(prompt("Nhập cạnh kề a:"));
+let canhB_TG = parseFloat(prompt("Nhập cạnh kề b:"));
+let dienTichTG = (canhA_TG * canhB_TG) / 2;
+console.log(`Diện tích tam giác vuông: ${dienTichTG}`);
+    </script>
+    -->
+    <!--
+    <script>
+        let a = parseFloat(prompt("Nhập hệ số a:"));
+let b = parseFloat(prompt("Nhập hệ số b:"));
+
+if (a === 0) {
+    if (b === 0) {
+        console.log("Phương trình có vô số nghiệm.");
+    } else {
+        console.log("Phương trình vô nghiệm.");
+    }
+} else {
+    let x = -b / a;
+    console.log(`Nghiệm của phương trình: x = ${x}`);
 }
-function moveRight() {
-    imgObj.style.left = parseInt(imgObj.style.left) + 10 + 'px';
+    </script>
+    -->
+    <!--
+    <script>
+        let a2 = parseFloat(prompt("Nhập hệ số a:"));
+let b2 = parseFloat(prompt("Nhập hệ số b:"));
+let c2 = parseFloat(prompt("Nhập hệ số c:"));
+
+if (a2 === 0) {
+    console.log("Đây không phải phương trình bậc 2. Chạy bài 6 để giải bậc 1.");
+} else {
+    let delta = b2 * b2 - 4 * a2 * c2;
+    if (delta < 0) {
+        console.log("Phương trình vô nghiệm.");
+    } else if (delta === 0) {
+        let x = -b2 / (2 * a2);
+        console.log(`Phương trình có nghiệm kép: x = ${x}`);
+    } else {
+        let x1 = (-b2 + Math.sqrt(delta)) / (2 * a2);
+        let x2 = (-b2 - Math.sqrt(delta)) / (2 * a2);
+        console.log(`Phương trình có 2 nghiệm: x1 = ${x1}, x2 = ${x2}`);
+    }
 }
-window.onload = init;
-    </script> 
+    </script>
+    -->
+    <!--
+    <script>
+        let tuoi = parseInt(prompt("Nhập tuổi:"));
+
+if (tuoi > 0 && tuoi < 120) {
+    console.log("Đây là tuổi hợp lệ.");
+} else {
+    console.log("Đây không phải là tuổi hợp lệ.");
+}
+    </script>
+    -->
+    <!--
+    <script>
+        let aT = parseFloat(prompt("Nhập cạnh a:"));
+let bT = parseFloat(prompt("Nhập cạnh b:"));
+let cT = parseFloat(prompt("Nhập cạnh c:"));
+
+if (aT > 0 && bT > 0 && cT > 0 && aT + bT > cT && aT + cT > bT && bT + cT > aT) {
+    console.log("Đây là 3 cạnh của một tam giác.");
+} else {
+    console.log("Ba số này không tạo thành một tam giác.");
+}
+    </script>
+    -->
+    <!--
+    <script>
+        let soDien = parseInt(prompt("Nhập số kWh tiêu thụ:"));
+let giaDien;
+
+if (soDien <= 50) {
+    giaDien = soDien * 1678;
+} else if (soDien <= 100) {
+    giaDien = 50 * 1678 + (soDien - 50) * 1734;
+} else {
+    giaDien = 50 * 1678 + 50 * 1734 + (soDien - 100) * 2014;
+}
+
+console.log(`Tổng tiền điện phải trả: ${giaDien.toLocaleString()} VNĐ`);
+    </script>
+    -->
+    <!--
+    <script>
+        let thuNhap = parseFloat(prompt("Nhập thu nhập chịu thuế (triệu VNĐ):"));
+let thue;
+
+if (thuNhap <= 5) {
+    thue = thuNhap * 0.05;
+} else if (thuNhap <= 10) {
+    thue = thuNhap * 0.1;
+} else if (thuNhap <= 18) {
+    thue = thuNhap * 0.15;
+} else {
+    thue = thuNhap * 0.2;
+}
+
+console.log(`Thuế thu nhập cá nhân phải nộp: ${thue.toLocaleString()} triệu VNĐ`);
+    </script>
+-->
+    <script>
+        let soTienGoc = parseFloat(prompt("Nhập số tiền ban đầu (VNĐ):"));
+let soThang = parseInt(prompt("Nhập số tháng gửi:"));
+let laiSuatThang = parseFloat(prompt("Nhập lãi suất hàng tháng (%):")) / 100;
+
+let tongTien = soTienGoc * Math.pow(1 + laiSuatThang, soThang);
+
+alert(`Số tiền sau ${soThang} tháng là: ${tongTien.toLocaleString()} VNĐ`);
+ </script>
 </body>
 </html>
