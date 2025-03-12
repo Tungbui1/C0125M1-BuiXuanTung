@@ -1,0 +1,81 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <table id="bangcuuchuong"></table>
+    <script>
+        let table = document.getElementById("bangcuuchuong")
+        for (let i = 1; i < 10; i++) {
+            let row = table.insertRow();
+            for (let j = 2; j < 10; j++) {
+                let cell = table.insertCell();
+              cell.innerHTML = `${j} x ${i} = ${j*i}`
+              
+                
+            }
+            
+        }
+    </script>
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng Cửu Chương</title>
+    <style>
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">Bảng Cửu Chương</h2>
+    <table id="bangcuuchuong"></table>
+
+    <script>
+        let table = document.getElementById("bangcuuchuong");
+        for (let i = 1; i < 10; i++) {
+            let row = table.insertRow();
+            for (let j = 2; j < 10; j++) {
+                let cell = row.insertCell();
+                cell.innerHTML = `${j} x ${i} = ${j * i}`;
+            }
+        }
+    </script>
+</body>
+</html>

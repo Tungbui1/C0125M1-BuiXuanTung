@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+    let scoresOfA = [8, 7, 9, 8.6, 5.7, 10, 8, 9, 6];
+    let total = 0
+    for (let i = 0; i < scoresOfA.length; i++) {
+        total += scoresOfA[i];
+    }
+    let avg = total / scoresOfA.length;
+    let hocLuc;
+if (avg >= 8.0) {
+    hocLuc = "Giỏi";
+} else if (avg >= 6.5) {
+    hocLuc = "Khá";
+} else if (avg >= 5.0) {
+    hocLuc = "Trung bình";
+} else {
+    hocLuc = "Yếu";
+}
+console.log(`Điểm trung bình: ${avg.toFixed(2)}`);
+console.log(`Học lực: ${hocLuc}`);
+   </script> 
+</body>
+</html>

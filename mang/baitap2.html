@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+    <h2>Số Hoàn Hảo</h2>
+<label for="so">số nguyên dương: </label>
+<input type="number" id="so" name="so" min="1">
+<button onclick="kiemTraSoHoanHao()">Kiểm Tra</button>
+
+<p id="ketQua"></p>
+</body>
+<script>
+function kiemTraSoHoanHao() {
+    var input = document.getElementById("so").value;
+    if (isNaN(input) || input <= 0 || !Number.isInteger(Number(input))) {
+                alert("Vui lòng nhập một số nguyên dương!");
+                return;
+            }
+            var n = Number(input);
+            var tong = 0;
+            for (let i = 1; i <= n/2; i++) {
+                if (n%i===0) {
+                    tong += i
+                    
+                }
+           
+            }
+            if (tong === n) {
+                 document.getElementById("ketQua").innerText = `${n} là một số hoàn hảo! ` 
+
+                
+            } else {
+             document.getElementById("ketQua").innerText = `${n} không phải là số hoàn hảo `
+                
+            }
+}
+</script>
+-->
+<h2>Cặp số thân thiết</h2>
+<label for="so1">số nguyên dương 1 : </label>
+<input type="number" id="so1" name="so1" min="1">
+<label for="so2"> Số nguyên dương 2 :</label>
+<input type="number" id="so2" name="so2" min="1">
+<button onclick="kiemTrathanthiet()">Kiểm Tra</button>
+<p id="ketQua"></p>
+<Script>
+    function tinhTongUoc(n) {
+    let tong = 0;
+    for (let i = 1; i <= n / 2; i++) {
+        if (n % i === 0) {
+            tong += i;
+        }
+    }
+    return tong;
+}
+
+    function kiemTrathanthiet(){ 
+        var a = Number( document.getElementById("so1").value);
+     var b = Number(document.getElementById("so2").value);
+     if (isNaN(a) || a <= 0 || !Number.isInteger(Number(a))|| isNaN(b) || b <= 0 || !Number.isInteger(Number(b))) {
+                alert("Vui lòng nhập một số nguyên dương!");
+                return;
+            }
+            let tongUocA = tinhTongUoc(a);
+            let tongUocB = tinhTongUoc(b);
+            if (tongUocA === b && tongUocB === a) {
+    alert(`${a} và ${b} là cặp số thân thiết! `);
+} else {
+    alert(`${a} và ${b} không phải là cặp số thân thiết `);
+}
+}
+           
+
+</Script>
+</body>
+</html>

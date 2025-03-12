@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20 Số Nguyên Tố Đầu Tiên</title>
+</head>
+<body>
+<h2>20 Số Nguyên Tố Đầu Tiên</h2>
+<ul id="list"></ul>
+
+<script>
+    function isPrime(n) {
+        if (n < 2) {
+            return false; // Số nhỏ hơn 2 không phải là số nguyên tố
+        }
+        for (let i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i === 0) {
+                return false; // Nếu chia hết thì không phải số nguyên tố
+            }
+        }
+        return true; // Ngược lại là số nguyên tố
+    }
+
+    let count = 0; // Đếm số lượng số nguyên tố
+    let number = 2; // Bắt đầu kiểm tra từ số 2
+    let list = document.getElementById("list");
+
+    while (count < 20) {
+        if (isPrime(number)) {
+            let item = document.createElement("li"); // Tạo thẻ <li>
+            item.innerHTML = number; // Gán số nguyên tố vào thẻ
+            list.appendChild(item); // Thêm vào danh sách
+            count++; // Tăng biến đếm
+        }
+        number++; // Kiểm tra số tiếp theo
+    }
+</script>
+</body>
+</html>

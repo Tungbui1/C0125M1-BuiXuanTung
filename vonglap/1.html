@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <!--
+   <script>
+        for (let n = 0; n <= 5; n++) {
+            alert("This number is "+n)
+            
+        }
+    </script>
+    -->
+    <!--
+    <script>
+    let n=parseFloat(prompt("Nhập số "))
+    let sum=0
+    for (let i = 0;i <= n;i++) {
+        sum +=i
+         }
+    alert("tổng là" +sum)
+    </script>
+-->
+   <!-- <script>
+        let num = +prompt("Enter a number: ");
+        if (num === -1) {
+            alert("kết thúc")
+            
+        } else {
+            let total = 0;
+        while( num != -1 ) {
+            num = parseInt(prompt("Enter a number: "));
+   total += num;
+   alert(total)
+        }
+       
+    }
+      
+    </script>
+    -->
+   <!-- <script>
+        let i = 1;
+
+while (i < 100) {
+    //phân thân vòng lặp
+    document.write("<hr width = " + i + "%>");
+    i++;
+}
+    </script>
+    -->
+    <script>
+        let isPrime = true;
+let k = +prompt("Mời bạn nhập số k: ")
+for(let i = 2; i <= Math.sqrt(k); i++) {
+    if(k%i ===0) {
+        isPrime = false;
+        break;
+    }
+}
+if(isPrime){
+    alert("Số nguyên tố");
+}else{
+    alert("Không phải là số nguyên tố");
+}
+    </script>
+</body>
+</html>
