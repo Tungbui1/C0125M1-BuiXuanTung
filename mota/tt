@@ -1,0 +1,8 @@
+BEGIN
+   
+    PRINT "Nhập số tiền USD:"
+    INPUT usd
+    ty_gia ← 24000
+    vnd ← usd * ty_gia
+    PRINT "Số tiền quy đổi sang VNĐ:", vnd
+END

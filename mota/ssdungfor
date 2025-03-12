@@ -1,0 +1,10 @@
+BEGIN
+    INPUT n
+    INPUT a[1], a[2], ..., a[n]
+    max ← a[1]
+    FOR i FROM 2 TO n DO
+        IF a[i] > max THEN
+            max ← a[i]
+    END FOR
+    OUTPUT max
+END

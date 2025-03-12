@@ -1,0 +1,18 @@
+BEG
+    PRINT "Nhập số thứ nhất:"
+    INPUT a
+    PRINT "Nhập số thứ hai:"
+    INPUT b
+    PRINT "Nhập số thứ ba:"
+    INPUT c
+
+  
+    max ← a
+    IF b > max THEN
+        max ← b
+    ENDIF
+    IF c > max THEN
+        max ← c
+    ENDIF
+    PRINT "Số lớn nhất là:", max
+END

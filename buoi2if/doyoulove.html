@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do You Love Me?</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Bạn có yêu mình không? 😍</h2>
+        <div class="buttons">
+            <button id="yesBtn" onclick="loveResponse()">YES</button>
+            <button id="noBtn" onmouseover="moveNoButton()">NO</button>
+        </div>
+    </div>
+
+    <script>
+        function loveResponse() {
+            alert("<3");
+        }
+
+        function moveNoButton() {
+            let button = document.getElementById("noBtn");
+            let x = Math.random() * (window.innerWidth - button.offsetWidth);
+            let y = Math.random() * (window.innerHeight - button.offsetHeight);
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+    </script>
+</body>
+</html>

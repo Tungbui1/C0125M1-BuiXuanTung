@@ -1,40 +1,88 @@
+<!--
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>20 Số Nguyên Tố Đầu Tiên</title>
+    <title></title>
 </head>
 <body>
-<h2>20 Số Nguyên Tố Đầu Tiên</h2>
-<ul id="list"></ul>
 
-<script>
-    function isPrime(n) {
-        if (n < 2) {
-            return false; // Số nhỏ hơn 2 không phải là số nguyên tố
-        }
-        for (let i = 2; i <= Math.sqrt(n); i++) {
-            if (n % i === 0) {
-                return false; // Nếu chia hết thì không phải số nguyên tố
+    <script>
+        for (let i = 1; i <= 100; i++) {
+            console.log(i);
+            if (i === 99) {
+                console.log("Đã hoàn thành đến số 99!");
+                break
             }
         }
-        return true; // Ngược lại là số nguyên tố
-    }
+    </script>
 
-    let count = 0; // Đếm số lượng số nguyên tố
-    let number = 2; // Bắt đầu kiểm tra từ số 2
-    let list = document.getElementById("list");
+</body>
+</html>
+-->
+<!--
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
 
-    while (count < 20) {
-        if (isPrime(number)) {
-            let item = document.createElement("li"); // Tạo thẻ <li>
-            item.innerHTML = number; // Gán số nguyên tố vào thẻ
-            list.appendChild(item); // Thêm vào danh sách
-            count++; // Tăng biến đếm
+    <script>
+
+         do {
+            let input = prompt("Nhập nhiệt độ hiện tại (từ 20 đến 100):");
+            nhietDo = parseFloat(input); 
+        
+        if (isNaN(nhietDo)) {
+            alert("Vui lòng nhập một số hợp lệ!");
+        } else if (nhietDo > 100) {
+            alert("Nhiệt độ quá cao! Hãy giảm nhiệt độ.");
+        } else if (nhietDo < 20) {
+            alert("Nhiệt độ quá thấp! Hãy tăng nhiệt độ.");
+        } else {
+            alert("Nhiệt độ bình thường.");
         }
-        number++; // Kiểm tra số tiếp theo
-    }
-</script>
+    } 
+    while (isNaN(nhietDo) || nhietDo < 20 || nhietDo > 100);
+
+alert(" Nhiệt độ hợp lệ: " + nhietDo);
+    </script>
+
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dãy Fibonacci</title>
+</head>
+<body>
+
+    <h2>20 số Fibonacci đầu tiên:</h2>
+    <p id="output"></p>
+
+    <script>
+        let soLuong = 20;
+        let fibo = [0, 1];
+        let i = 2;
+
+        while (i < soLuong) {
+            fibo[i] = fibo[i - 1] + fibo[i - 2];
+            i++;
+        }
+
+        // Hiển thị kết quả trên trang web
+        document.getElementById("output").innerText = fibo.join(", ");
+
+        // Hiển thị trên console để kiểm tra
+        console.log("20 số Fibonacci đầu tiên:", fibo);
+    </script>
+
 </body>
 </html>

@@ -1,0 +1,15 @@
+BEGIN
+  
+    PRINT "Nhập điểm Toán:"
+    INPUT toan
+    PRINT "Nhập điểm Lý:"
+    INPUT ly
+    PRINT "Nhập điểm Hóa:"
+    INPUT hoa
+
+   
+    trung_binh ← (toan + ly + hoa) / 3
+
+   
+    PRINT "Điểm trung bình là:", trung_binh
+END

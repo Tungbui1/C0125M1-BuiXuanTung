@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox Giới Hạn</title>
+</head>
+<body>
+
+    <label><input type="checkbox" class="limited-checkbox"> Good</label><br>
+    <label><input type="checkbox" class="limited-checkbox"> Cheap</label><br>
+    <label><input type="checkbox" class="limited-checkbox"> Fast</label><br>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const checkboxes = document.querySelectorAll(".limited-checkbox");
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener("change", function() {
+                    let checkedBoxes = Array.from(checkboxes).filter(cb => cb.checked);
+                    if (checkedBoxes.length > 2) {
+                        checkedBoxes[0].checked = false; // Bỏ chọn checkbox đầu tiên được chọn
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

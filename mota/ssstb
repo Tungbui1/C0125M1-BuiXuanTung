@@ -1,0 +1,16 @@
+BEGIN
+    PRINT "Nhập điểm số (0-100): "
+    INPUT diem
+
+    IF diem >= 75 THEN
+        PRINT "Xếp hạng: Loại A"
+    ELSE IF diem >= 60 THEN
+        PRINT "Xếp hạng: Loại B"
+    ELSE IF diem >= 45 THEN
+        PRINT "Xếp hạng: Loại C"
+    ELSE IF diem >= 35 THEN
+        PRINT "Xếp hạng: Loại D"
+    ELSE
+        PRINT "Xếp hạng: Loại E"
+    ENDIF
+END

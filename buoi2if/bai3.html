@@ -1,45 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Kiểm tra số ngày trong tháng</title>
 </head>
 <body>
-    <form>
-        <input type="text" id="myInput" placeholder="Nhập năm">
-        <input type="text" name="myInput2" id="Nhập tháng">
-        <button onclick="layDuLieu()">Lấy dữ liệu</button>
+    <h3>Nhập tháng và năm để kiểm tra số ngày</h3>
+    <form onsubmit="return layDuLieu(event)">
+        <label for="myInput">Nhập năm:</label>
+        <input type="number" id="myInput" placeholder="Nhập năm" required>
+        
+        <label for="nhapThang">Nhập tháng (1-12):</label>
+        <input type="number" id="nhapThang" min="1" max="12" required>
+
+        <button type="submit">Lấy dữ liệu</button>
     </form>
+
+    <p id="result"></p>
+
     <script>
-        let inputValue = document.getElementById("myInput").value;
-        let inputValue2 =document.getElementById("myInput2").value;
-        switch (myInput2) {
-            case 1 :
-            case 3 :
-            case 5:
-            case 7:
-            case 8:
-            case 10:
-            case 12;
-            document.write("tháng"myInput2"có 31 ngày")
+        function layDuLieu(event) {
+            event.preventDefault(); // Ngăn chặn form reload trang
 
-                break;
-            case 4:
-            case 6:
-            case 9:
-            case 11;
-            document.write("tháng "myInput2"có 3 ngày ")
-            case 2;
-            if (myInput%2===0||) {
+            let year = parseInt(document.getElementById("myInput").value);
+            let month = parseInt(document.getElementById("nhapThang").value);
+            let resultText = "";
 
-                
-            } else {
-                
+            switch (month) {
+                case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+                    resultText = `Tháng ${month} có 31 ngày.`;
+                    break;
+                case 4: case 6: case 9: case 11:
+                    resultText = `Tháng ${month} có 30 ngày.`;
+                    break;
+                case 2:
+                    if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+                        resultText = `Tháng 2 năm ${year} có 29 ngày (năm nhuận).`;
+                    } else {
+                        resultText = `Tháng 2 năm ${year} có 28 ngày.`;
+                    }
+                    break;
+                default:
+                    resultText = "Tháng không hợp lệ!";
             }
 
-            default:
-                break;
+            document.getElementById("result").innerText = resultText;
         }
     </script>
 </body>
