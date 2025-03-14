@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+    <script>
+        let a = [
+    [1, 2, 1, 24],
+    [8, 11, 9, 4],
+    [7, 0, 7, 27],
+    [7, 4, 28, 14],
+    [3, 10, 26, 7]
+];
+
+for (let i = 0; i < a.length; i++) {
+    console.log(`row ${i}`);
+    for (let j = 0; j < a[i].length; j++) {
+        console.log(` ${a[i][j]}`);
+    }
+}
+    </script>
+    -->
+    <!--
+    <script>
+        let arr = ['c', 's', 'c', '2', '6', '1'];
+console.log(arr.reverse().join(""));
+    </script>
+    -->
+    <!--
+    <script>
+        let arr = ['a', '1', 'b', '2', 'c', '3', '4', 'd'];
+let count = arr.filter(char => !isNaN(char) && char !== ' ').length;
+console.log(`Số ký tự số trong mảng: ${count}`);
+    </script>
+    -->
+    <script>
+        function countWords(str) {
+    let words = str.trim().split(/\s+/); 
+    console.log(`Số từ trong chuỗi: ${words.length}`);
+}
+
+// Ví dụ chạy thử
+countWords("  Xin chào  ");
+
+    </script>
+
+</body>
+</html>

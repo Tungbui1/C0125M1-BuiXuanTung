@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+    <script>
+        
+        let myColor = ["Red", "Green", "White", "Black"];
+let result1 = myColor.join(","); 
+console.log(result1);
+</script> 
+-->
+<!--
+<script>
+function chenDauGach(chuoiSo) {
+    let result = [chuoiSo[0]]; 
+    for (let i = 1; i < chuoiSo.length; i++) {
+        if (chuoiSo[i - 1] % 2 === 0 && chuoiSo[i] % 2 === 0) {
+            result.push("-", chuoiSo[i]);
+        } else {
+            result.push(chuoiSo[i]);
+        }
+    }
+    return result.join("");
+}
+
+let input2 = "025468";
+console.log(chenDauGach(input2));
+</script>
+--> 
+<script>
+
+function chuyenDoiChuoi(chuoi) {
+    let result = "";
+
+    for (let i = 0; i < chuoi.length; i++) {
+        let char = chuoi[i];
+
+        if (char === char.toUpperCase()) {
+            result += char.toLowerCase();
+        } else {
+            result += char.toUpperCase();
+        }
+    }
+
+    return result;
+}
+
+let input3 = "The Quick Brown Fox";
+console.log(chuyenDoiChuoi(input3)); // Output: "tHE qUICK bROWN fOX"
+
+    </script>
+</body>
+</html>
