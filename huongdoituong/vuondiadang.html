@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mô phỏng Adam và Eva ăn táo</title>
+</head>
+<body>
+
+    <h2>Mô phỏng Adam và Eva ăn táo</h2>
+    <p id="log"></p>
+    <button onclick="batDauAnTao()">Bắt đầu ăn táo</button>
+
+    <script>
+        // Lớp Apple
+        class Apple {
+            #weight; // Thuộc tính private
+
+            constructor() {
+                this.#weight = 10; 
+            }
+            getWeight() {
+                return this.#weight;
+            }
+            bite() {
+                if (this.#weight > 0) {
+                    this.#weight--;
+                    return true; 
+                }
+                return false; 
+            }
+        }
+        class Human {
+            constructor(name, gender, weight) {
+                this.name = name;
+                this.gender = gender;
+                this.weight = weight;
+            }
+
+
+            speak(message) {
+                this.log(`${this.name} nói: "${message}"`);
+            }
+            eat(apple) {
+                if (apple.bite()) {
+                    this.weight++;
+                    this.log(`${this.name} ăn một miếng táo. Cân nặng hiện tại: ${this.weight}`);
+                } else {
+                    this.log(`${this.name} không thể ăn nữa, táo đã hết!`);
+                }
+            }
+            checkApple(apple) {
+                this.log(`Táo còn ${apple.getWeight()} đơn vị khối lượng.`);
+            }
+
+            log(message) {
+                let logElement = document.getElementById("log");
+                logElement.innerHTML += message + "<br>";
+            }
+        }
+        let apple = new Apple();
+        let adam = new Human("Adam", "Nam", 70);
+        let eva = new Human("Eva", "Nữ", 55);
+        function batDauAnTao() {
+            let turn = 0;
+            document.getElementById("log").innerHTML = ""; 
+            adam.speak("Táo này trông ngon quá!");
+            eva.speak("Để mình thử trước!");
+
+            while (apple.getWeight() > 0) {
+                if (turn % 2 === 0) {
+                    adam.eat(apple);
+                } else {
+                    eva.eat(apple);
+                }
+                turn++;
+            }
+
+            adam.checkApple(apple);
+            eva.speak("Táo đã hết!");
+        }
+    </script>
+
+</body>
+</html>

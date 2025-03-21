@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // function alertMessage() {
+        //     alert("Xin chào");
+        // }
+        // function increaseNumber(num) {
+        //     return num + 1;
+        // }
+        // function compareNumbers(a, b) {
+        //     if (a > b) {
+        //         alert("Giá trị thứ nhất lớn hơn giá trị thứ hai.");
+        //     } else {
+        //         return a + b;
+        //     }
+        // }
+        // function addNumbers() {
+        //     let firstNum = 4;
+        //     let secondNum = 8;
+        //     let result = firstNum + secondNum;
+        //     alert("Giá trị của result bên trong hàm: " + result);
+        //     return result;
+        // }
+
+        // let result = 0;
+        // alert("Giá trị ban đầu của result: " + result);
+        // result = addNumbers();
+        // alert("Giá trị của result sau khi gọi hàm: " + result);
+        let stars = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+        let constellations = ["Ursa Minor", "Taurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+
+        function findConstellation(starName) {
+            let index = stars.indexOf(starName);
+            if (index !== -1) {
+                return constellations[index];
+            } else {
+                return "Không tìm thấy ngôi sao này trong danh sách.";
+            }
+        }
+    </script>
+    
+</body>
+<body>
+    <!-- <button onclick="alertMessage()">1212</button>\
+    <button onclick="document.getElementById('result2').innerText = increaseNumber(5)">333</button>
+    <p>Kết quả: <span id="result2"></span></p>
+    <button onclick="document.getElementById('result3').innerText = compareNumbers(3, 7)">Bài 3: So sánh và tính tổng</button>
+    <p>Kết quả: <span id="result3"></span></p>-->
+    <button onclick="searchStar()">5</button> 
+    <script>
+        function searchStar() {
+            let starName = prompt("Nhập tên ngôi sao:");
+            let result = findConstellation(starName);
+            alert(result);}
+        </script>
+</body>
+</html>

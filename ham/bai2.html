@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function binhphuong(num){
+            return num*num
+
+        }
+        console.log("binh phuong la" + binhphuong(4));
+        
+        function dientich(chieudai) {
+            return Math.PI*chieudai*chieudai
+            
+        }
+        function chuvi(chieudai){
+            return 2*Math.PI*chieudai
+        }
+        
+        function giaithua(So) {
+            let result =1
+            if (So===1||So===0) {
+                return 1
+                
+            } else if (So < 0) {
+               return "khong the nhan giai thua so nay";
+                
+
+                
+            }
+            else{
+                for (let i = 2; i <=So; i++) {
+                    result *=i;
+                    
+                }
+            }
+            return result
+            
+        }
+        function kiemtraso(char) {
+            return !isNaN(char) && char.trim() !== "";
+        }
+        console.log("kys tu 'S' co phai so khong" +kiemtraso("S"))
+        function sobenat(a,b,c) {
+            
+            return Math.min(a, b, c);
+            
+        }
+        function songuyenduong(d) {
+            return Number.isInteger(d) && d>0
+            
+        }
+        function doicho(e,f) {
+            console.log("truoc khi doiw " ,e,f);
+            let temp =e;
+            e=f;
+            f=temp;
+            console.log("sau khi doi" ,e,f);
+            return[e,f]
+            }
+            function demKyTuTrongMang(arr, kyTu) {
+    let count = arr.filter(char => char === kyTu).length;
+    return count > 0 ? count : -1;
+}
+let mangSo = [1, 2, 3, 4, 5];
+console.log("Mảng sau khi đảo ngược:", daoNguocMang([...mangSo])); 
+function demKyTuTrongMang(arr, kyTu) {
+    let count = arr.filter(char => char === kyTu).length;
+    return count > 0 ? count : -1;
+}
+
+
+let mangKyTu = ['a', 'b', 'c', 'a', 'd', 'a'];
+console.log(`Số lần xuất hiện của 'a':`, demKyTuTrongMang(mangKyTu, 'a'));
+console.log(`Số lần xuất hiện của 'x':`, demKyTuTrongMang(mangKyTu, 'x'));
+    
+
+
+    </script>
+    <button onclick="alert('doi cho' +doicho(3,4))"></button>
+    <button onclick="alert('giai thua la' + giaithua(7))">giai thua</button>
+</body>
+</html>

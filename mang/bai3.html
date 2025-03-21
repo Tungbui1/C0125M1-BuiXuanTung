@@ -37,16 +37,29 @@ let count = arr.filter(char => !isNaN(char) && char !== ' ').length;
 console.log(`Số ký tự số trong mảng: ${count}`);
     </script>
     -->
+    <!--
     <script>
         function countWords(str) {
     let words = str.trim().split(/\s+/); 
     console.log(`Số từ trong chuỗi: ${words.length}`);
 }
-
-// Ví dụ chạy thử
 countWords("  Xin chào  ");
 
     </script>
-
+-->
+    <!--
+<script>
+        function compareStrings(str1, str2) {
+    console.log(str1 === str2 ? "Hai chuỗi giống nhau" : "Hai chuỗi khác nhau");
+}
+compareStrings("hello", "hello");
+compareStrings("hello", "Hello");
+</script>
+    -->
+<script>
+    let arr = ['h', 'e', 'l', '-', 'l', 'o', '-', 'w', 'o', 'r', 'l', 'd'];
+arr = arr.map(char => char === '-' ? '_' : char);
+console.log(arr.join(""));
+</script>
 </body>
 </html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+
+    <h2>Chuyển đổi nhiệt độ</h2>
+    <p id="result"></p>
+
+    <script>
+        class Temperature {
+            constructor(celsius) {
+                this.setCelsius(celsius);
+            }
+            setCelsius(celsius) {
+                if (celsius < -273) {
+                    console.log("Nhiệt độ không thể nhỏ hơn -273°C! Đặt về -273°C.");
+                    this.celsius = -273;
+                } else {
+                    this.celsius = celsius;
+                }
+            }
+            getCelsius() {
+                return this.celsius;
+            }
+            toFahrenheit() {
+                return (this.celsius * 9/5) + 32;
+            }
+            toKelvin() {
+                return this.celsius + 273.15;
+            }
+        }
+        let temp = new Temperature(25);
+        document.getElementById("result").innerHTML = 
+            `Nhiệt độ: ${temp.getCelsius()}°C <br>` +
+            `Chuyển sang Fahrenheit: ${temp.toFahrenheit().toFixed(2)}°F <br>` +
+            `Chuyển sang Kelvin: ${temp.toKelvin().toFixed(2)}K`;
+    </script>
+
+</body>
+</html>
