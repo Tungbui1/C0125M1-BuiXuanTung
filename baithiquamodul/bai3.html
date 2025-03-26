@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kiểm tra số ngày trong tháng</title>
+    <title>Document</title>
 </head>
 <body>
-    <h3>Nhập tháng và năm để kiểm tra số ngày</h3>
     <form onsubmit="return layDuLieu(event)">
         <label for="myInput">Nhập năm:</label>
-        <input type="number" id="myInput" placeholder="Nhập năm" required>
+        <input type="number" id="myInput" required>
         
         <label for="nhapThang">Nhập tháng (1-12):</label>
         <input type="number" id="nhapThang" min="1" max="12" required>
@@ -18,7 +17,6 @@
     </form>
 
     <p id="result"></p>
-
     <script>
         function layDuLieu(event) {
             event.preventDefault(); 

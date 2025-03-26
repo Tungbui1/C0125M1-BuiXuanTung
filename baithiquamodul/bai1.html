@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let input = prompt("nhập các số nguyên cách nhau dấu (,)")
+        let number=input.split(",").map(Number)
+        if (number.length > 50) {
+            alert("giới hạn 50 phần tử")
+            
+        }else{
+        function kiemtra(arr) {
+            let tong = 0  
+            let count = 0
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i]%3===0) {
+                    tong +=arr[i]
+                    count ++
+                    }
+
+            }
+            if (count>0) {
+                return tong/count
+                }
+                else{
+                    return 'không có số nào chia hết cho 3'
+                }
+        }
+console.log("Trung bình cộng các số chia hết cho 3:", kiemtra(number));
+    }
+    </script>
+</body>
+</html>
