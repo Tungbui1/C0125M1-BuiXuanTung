@@ -1,90 +1,146 @@
 package thu6ngay13;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.nio.file.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 public class ProductManager {
-    private List<Product> productList;
-    private final String filename = "products.dat";
+    private static final String FILE_NAME = "products.txt";
+    private static final String LOG_FILE = "history.log";
+    private List<Product> productList = new ArrayList<>();
 
     public ProductManager() {
-        productList = readFromFile();
+        loadFromFile();
     }
 
-    // Thêm sản phẩm mới
+    private void writeLog(String action, String data) {
+        try (FileWriter fw = new FileWriter(LOG_FILE, true)) {
+            String time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+            fw.write("[" + time + "] " + action + ": " + data + "\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void loadFromFile() {
+        productList.clear();
+        try (BufferedReader br = new BufferedReader(new FileReader(FILE_NAME))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length == 3) {
+                    productList.add(new Product(parts[0], parts[1], Double.parseDouble(parts[2])));
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Không tìm thấy file sản phẩm.");
+        }
+    }
+
+    private void saveToFile() {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILE_NAME))) {
+            for (Product p : productList) {
+                bw.write(p.toString());
+                bw.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        backupFile();
+    }
+
+    private void backupFile() {
+        String time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
+        String backupName = "products_backup_" + time + ".txt";
+        try {
+            Files.copy(Paths.get(FILE_NAME), Paths.get(backupName), StandardCopyOption.REPLACE_EXISTING);
+            writeLog("Backup", backupName);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void showAll() {
+        if (productList.isEmpty()) {
+            System.out.println("Danh sách trống.");
+        } else {
+            for (Product p : productList)
+                p.display();
+        }
+    }
+
     public void addProduct(Product p) {
         productList.add(p);
-        writeToFile();
+        saveToFile();
+        writeLog("Added", p.toString());
     }
 
-    // Hiển thị tất cả sản phẩm
-    public void displayAll() {
-        if (productList.isEmpty()) {
-            System.out.println("Danh sách sản phẩm trống.");
-        } else {
-            System.out.println("===== Danh sách sản phẩm =====");
-            for (Product p : productList) {
-                System.out.println(p);
-            }
-        }
-    }
-
-    // Hiển thị sản phẩm có giá >= 200,000
-    public void displayPriceOver200k() {
-        boolean found = false;
+    public void filterByPrice(double minPrice) {
         for (Product p : productList) {
-            if (p.getPrice() >= 200000) {
-                if (!found) {
-                    System.out.println("===== Sản phẩm có giá từ 200,000 VND =====");
-                    found = true;
-                }
-                System.out.println(p);
-            }
-        }
-        if (!found) {
-            System.out.println("Không có sản phẩm nào giá từ 200,000 VND.");
+            if (p.getPrice() >= minPrice)
+                p.display();
         }
     }
 
-    // Cập nhật giá sản phẩm theo ID
-    public void updateProductPrice(String id, double newPrice) {
-        boolean found = false;
+    public void updatePrice(String id, double newPrice) {
         for (Product p : productList) {
             if (p.getId().equals(id)) {
                 p.setPrice(newPrice);
-                found = true;
-                break;
+                saveToFile();
+                writeLog("Updated price", id + " -> " + newPrice);
+                System.out.println("Đã cập nhật.");
+                return;
             }
         }
-        if (found) {
-            writeToFile();
-            System.out.println("Đã cập nhật giá sản phẩm.");
-        } else {
-            System.out.println("Không tìm thấy sản phẩm với mã: " + id);
-        }
+        System.out.println("Không tìm thấy mã sản phẩm.");
     }
 
-    // Ghi file
-    private void writeToFile() {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
-            oos.writeObject(productList);
+    public void searchByNameInFile(String keyword) {
+        try (BufferedReader br = new BufferedReader(new FileReader(FILE_NAME))) {
+            String line;
+            boolean found = false;
+            while ((line = br.readLine()) != null) {
+                if (line.toLowerCase().contains(keyword.toLowerCase())) {
+                    System.out.println("Tìm thấy: " + line);
+                    found = true;
+                }
+            }
+            if (!found)
+                System.out.println("Không tìm thấy.");
         } catch (IOException e) {
-            System.out.println("Lỗi ghi file: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
-    // Đọc file
-    private List<Product> readFromFile() {
-        List<Product> list = new ArrayList<>();
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filename))) {
-            list = (List<Product>) ois.readObject();
-        } catch (FileNotFoundException e) {
-            // File chưa có -> trả về list rỗng
-        } catch (IOException | ClassNotFoundException e) {
-            System.out.println("Lỗi đọc file: " + e.getMessage());
+    public void deleteById(String id) {
+        boolean removed = productList.removeIf(p -> p.getId().equals(id));
+        if (removed) {
+            saveToFile();
+            writeLog("Removed", id);
+            System.out.println("Đã xóa sản phẩm.");
+        } else {
+            System.out.println("Không tìm thấy mã sản phẩm.");
         }
-        return list;
+    }
+
+    public void importFromFile(String fileName) {
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            int count = 0;
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length == 3) {
+                    productList.add(new Product(parts[0], parts[1], Double.parseDouble(parts[2])));
+                    count++;
+                }
+            }
+            saveToFile();
+            writeLog("Imported", "from " + fileName);
+            System.out.println("Đã nhập " + count + " sản phẩm.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

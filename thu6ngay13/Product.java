@@ -1,8 +1,6 @@
 package thu6ngay13;
 
-import java.io.Serializable;
-
-public class Product implements Serializable {
+public class Product {
     private String id;
     private String name;
     private double price;
@@ -13,21 +11,12 @@ public class Product implements Serializable {
         this.price = price;
     }
 
-    // Getter, Setter
     public String getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public double getPrice() {
@@ -38,9 +27,12 @@ public class Product implements Serializable {
         this.price = price;
     }
 
-    // Hiển thị sản phẩm
     @Override
     public String toString() {
-        return "Mã SP: " + id + ", Tên SP: " + name + ", Giá: " + price + " VND";
+        return id + "," + name + "," + price;
+    }
+
+    public void display() {
+        System.out.printf("Mã: %s | Tên: %s | Giá: %.0f VND%n", id, name, price);
     }
 }
